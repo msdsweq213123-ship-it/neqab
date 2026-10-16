@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>دانلود برنامه نقاب • هوش مصنوعی اساطیر ایران</title>
+    <meta name="description" content="دانلود مستقیم اپلیکیشن نقاب - هوش مصنوعی تبدیل چهره به شخصیت‌های تاریخی و اساطیر ایران زمین.">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        :root {
+            --bg-dark: #0a0c10;
+            --bg-card: rgba(22, 27, 34, 0.75);
+            --gold: #d4af37;
+            --gold-light: #f7e7a9;
+            --gold-dark: #aa8214;
+            --text-main: #f0f3f6;
+            --text-muted: #9aa4b2;
+            --accent-glow: rgba(212, 175, 55, 0.2);
+            --border-card: rgba(212, 175, 55, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: radial-gradient(circle at 50% 0%, #1f1911 0%, #0a0c10 80%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 16px 100px 16px;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar */
+        .navbar {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px 0 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--gold);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge-verified {
+            font-size: 11px;
+            background: rgba(46, 160, 67, 0.15);
+            color: #3fb950;
+            border: 1px solid rgba(46, 160, 67, 0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            font-size: 12px;
+            padding: 6px 16px;
+            border-radius: 25px;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 40%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        /* Download CTA Card */
+        .cta-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow);
+            margin-bottom: 30px;
+        }
+
+        .btn-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: #0a0c10;
+            text-decoration: none;
+            border-radius: 18px;
+            font-size: 17px;
+            font-weight: 800;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+            transition: all 0.2s ease;
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        .btn-download:active {
+            transform: scale(0.97);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35); }
+            50% { box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6); }
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 14px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Characters Showcase Carousel / Grid */
+        .section-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .char-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .char-card .tag {
+            font-size: 10px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .char-card .name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .char-card .desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* How it works */
+        .steps-card {
+            width: 100%;
+            max-width: 500px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.05));
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-content .step-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+
+        .step-content .step-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Sticky Bottom Download Bar */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 12, 16, 0.95);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .bottom-bar a {
+            width: 100%;
+            max-width: 480px;
+            padding: 13px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: #0a0c10;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand">
+            <img src="logo.jpg" alt="نقاب" class="brand-logo">
+            <span class="brand-name">نِقـاب</span>
+        </div>
+        <div class="badge-verified">✓ نسخه رسمی و امن</div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-badge">👑 هوش مصنوعی اساطیر و تاریخ ایران</div>
+        <h1>چهره تو شبیه کدام پادشاه یا اسطوره ایرانی است؟</h1>
+        <p>یک عکس سلفی انتخاب کن تا هوش مصنوعی خطوط چهره‌ات را اسکن کرده و نقاب باستانی و شخصیت تاریخی همسان با تو را نمایان کند!</p>
+
+        <div class="cta-card">
+            <a href="Naqab.apk" class="btn-download" download>
+                <span>📥 دانلود مستقیم برنامه نقاب</span>
+            </a>
+            <div class="meta-row">
+                <span class="meta-item">📱 نسخه ۱.۰ اندروید</span>
+                <span class="meta-item">•</span>
+                <span class="meta-item">⚡ حجم ۲.۸ مگابایت</span>
+                <span class="meta-item">•</span>
+                <span class="meta-item">🛡️ ۱۰۰٪ رایگان</span>
+            </div>
+        </div>
+    </header>
+
+    <main style="width: 100%; max-width: 500px;">
+        <div class="section-title">
+            <span>🎭</span>
+            <span>۱۴ شخصیت برجسته و آماده تبدیل</span>
+        </div>
+
+        <div class="chars-grid">
+            <div class="char-card">
+                <span class="tag">هخامنشیان</span>
+                <span class="name">کوروش بزرگ</span>
+                <span class="desc">بنیان‌گذار حقوق بشر و نماد فرزانگی ایران</span>
+            </div>
+            <div class="char-card">
+                <span class="tag">شاهنامه</span>
+                <span class="name">رستم دستان</span>
+                <span class="desc">تهمتن و اسطوره شجاعت و دلاوری</span>
+            </div>
+            <div class="char-card">
+                <span class="tag">حماسی</span>
+                <span class="name">سهراب پهلوان</span>
+                <span class="desc">یل جوان، نیرومند و خوش‌سیمای ایران</span>
+            </div>
+            <div class="char-card">
+                <span class="tag">افشاریه</span>
+                <span class="name">نادرشاه افشار</span>
+                <span class="desc">جهانگشای شرق و نابغه پرآوازه نظامی</span>
+            </div>
+            <div class="char-card">
+                <span class="tag">بانوان حماسی</span>
+                <span class="name">گردآفرید</span>
+                <span class="desc">شیرزن شجاع و جنگجوی اساطیر شاهنامه</span>
+            </div>
+            <div class="char-card">
+                <span class="tag">شهبانوان باستان</span>
+                <span class="name">شهبانو آتوسا</span>
+                <span class="desc">شهبانوی مقتدر و دانای ایران زمین</span>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <span>⚙️</span>
+            <span>نحوه استفاده در ۳ گام ساده</span>
+        </div>
+
+        <div class="steps-card">
+            <div class="step-item">
+                <div class="step-num">۱</div>
+                <div class="step-content">
+                    <div class="step-title">دانلود و نصب برنامه</div>
+                    <div class="step-text">فایل کم‌حجم APK برنامه را دانلود و روی گوشی خود نصب کنید.</div>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">۲</div>
+                <div class="step-content">
+                    <div class="step-title">انتخاب عکس چهره</div>
+                    <div class="step-text">عکسی با زاویه روبه‌رو از گالری یا دوربین خود بارگذاری کنید.</div>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">۳</div>
+                <div class="step-content">
+                    <div class="step-title">کشف نقاب و اشتراک‌گذاری</div>
+                    <div class="step-text">در کمتر از ۱۵ ثانیه تصویر نقاب اساطیری خود را دریافت و با دوستانتان به اشتراک بگذارید!</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="bottom-bar">
+        <a href="Naqab.apk" download>📥 دانلود رایگان نقاب (۲.۸ مگابایت)</a>
+    </div>
+
+</body>
+</html>
